@@ -1,0 +1,11 @@
+{
+  "name": "mern-course",
+  "version": "1.0.0",
+  "description": "MERN stack, react, mongo-db",
+  "main": "app.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "Vladimir Z",
+  "license": "ISC"
+}
