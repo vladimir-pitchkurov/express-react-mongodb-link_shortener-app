@@ -11,7 +11,7 @@ router.post(
     async (req, resp) => {
         try {
             const baseUrl = config.get('baseUrl')
-            const from = req.body
+            const {from} = req.body
             const existing = await Link.findOne({from})
 
             if (existing) {

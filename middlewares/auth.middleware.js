@@ -5,16 +5,17 @@ module.exports = (req, resp, next) => {
         return next;
     }
     try {
-        const token = req.headers.Authorization.split(' ')[1]
+        const token = req.headers.authorization.split(' ')[1]
         if (!token) {
-            return resp.status(401).json({message: 'Not authorized'})
+            return resp.status(401).json({message: 'Not authorized, token not found'})
         }
+        const secret = config.get('jwt-secret');
 
-        const decoded = jwt.verify(token, config.get('jwt-secret'))
+        const decoded = jwt.verify(token, secret)
 
         req.user = decoded
-        next()
+        return next()
     } catch (e) {
-        return resp.status(401).json({message: 'Not authorized'})
+        return resp.status(401).json({message: 'Not authorized: ' + e.message})
     }
 }
