@@ -1,5 +1,4 @@
-import {check, validationResult} from "express-validator";
-
+const {check, validationResult} = require("express-validator");
 const config = require('config');
 const jwt = require('jsonwebtoken');
 const {Router} = require('express');
