@@ -28,7 +28,7 @@ export const AuthPage = () => {
 
     useEffect(() => {
         window.M && window.M.updateTextFields()
-    }, [window])
+    }, [])
 
     const loginHandler = async () => {
         try {
