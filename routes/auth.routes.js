@@ -14,11 +14,12 @@ router.post(
     ],
     async (req, resp) => {
         try {
+            console.log("Body:", req.body);
             const errors = validationResult(req);
             if (!errors.isEmpty()) {
                 return resp.status(400).json({
                     message: 'Incorrect registration data.',
-                    errors: errors.array()
+                    errors: errors.array(),
                 });
             }
             const {email, password} = req.body;

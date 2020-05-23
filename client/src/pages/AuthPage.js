@@ -1,8 +1,8 @@
 import React, {useState} from "react";
-import {useHttp} from "../../hooks/http.hook";
+import {useHttp} from "../hooks/http.hook";
 
 export const AuthPage = () => {
-    const {loading, request, error} = useHttp();
+    const {loading, request} = useHttp();
 
     const [form, setForm] = useState({
         email: '',
@@ -15,10 +15,10 @@ export const AuthPage = () => {
 
     const registerHandler = async () => {
         try {
-            const data = await request('/api/auth/register', 'POST', ...form);
+            const data = await request('/api/auth/register', 'POST', {...form});
             console.log('data', data);
         } catch (e) {
-
+            console.log(e);
         }
     }
 
