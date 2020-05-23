@@ -14,7 +14,6 @@ router.post(
     ],
     async (req, resp) => {
         try {
-            console.log("Body:", req.body);
             const errors = validationResult(req);
             if (!errors.isEmpty()) {
                 return resp.status(400).json({
@@ -63,7 +62,7 @@ router.post(
                 return;
             }
 
-            const isMatch = await bcrypt.compare(password.user.password);
+            const isMatch = await bcrypt.compare(password, user.password);
 
             if (!isMatch) {
                 resp.status(400).json({message: "Bad login or password."});
@@ -77,6 +76,7 @@ router.post(
             resp.status(200).json({token, userId: user.id});
 
         } catch (e) {
+            console.log(e);
             resp.status(500).json('Something went wrong :(');
         }
     });
