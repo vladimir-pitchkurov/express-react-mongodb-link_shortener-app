@@ -46,8 +46,6 @@ router.get(
     auth,
     async (req, resp) => {
         try {
-
-            console.log('{id: req.params.id}', {id: req.params.id})
             const link = await Link.findById(req.params.id)
             resp.status(200).json(link)
         } catch (e) {
