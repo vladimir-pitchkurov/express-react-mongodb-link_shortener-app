@@ -11,5 +11,6 @@ sudo ln -s "$NVM_DIR/versions/node/$(nvm version)/bin/npm" "/usr/local/bin/npm"
 
 sudo npm install pm2@latest -g
 
-
-then
+nginx config current default
+pm2 start npm -- start   //for start deamon
+pm2 list   // look processes
