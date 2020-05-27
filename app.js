@@ -5,7 +5,7 @@ const path = require('path');
 
 app = express();
 const PORT = config.get('port') || 5000;
-
+app.set('trust proxy', true);
 app.use(express.json({extended: true}))
 
 app.use('/api/auth', require('./routes/auth.routes'));
