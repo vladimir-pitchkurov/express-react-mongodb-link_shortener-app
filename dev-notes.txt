@@ -1,6 +1,4 @@
 deploy to server by npm global package: pm2  (this create deamon for nodejs)
 
 
-
-apache stopped and disabled by:
-https://www.digitalocean.com/community/tutorials/apache-ubuntu-18-04-ru
+no, i will deploy npm by nginx server on ubuntu 20
